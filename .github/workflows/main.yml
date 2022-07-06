@@ -10,13 +10,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-shell-command:
-    name: test-shell-command
+  run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: echo a string
-        run: echo "hello world"
-      - name: multiline script
-        run: |
-          node -v
-          npm -v
+      - name: Simple JS Axtion
+        id: greet
+        uses: actions/hello-world-javascript-action@main # ← main은 브랜치 이름입니다. tag이름이 올수도 있어요. v1 등?
+        with:
+          who-to-greet: "ASP to JAVA"
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"
+
