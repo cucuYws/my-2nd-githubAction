@@ -10,6 +10,17 @@ on:
   workflow_dispatch:
 
 jobs:
+  test-shell-command:
+    name: test-shell-command
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "hello world"
+      - name: multiline script
+        run: |
+          node -v
+          npm -v
+  
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
@@ -20,4 +31,3 @@ jobs:
           who-to-greet: "ASP to JAVA"
       - name: Log Greeting Time
         run: echo "${{ steps.greet.outputs.time }}"
-
