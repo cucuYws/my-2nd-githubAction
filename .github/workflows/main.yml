@@ -20,6 +20,9 @@ jobs:
         run: |
           node -v
           npm -v
+      - name: python command
+        run: |
+          python --version
   
   run-github-actions:
     runs-on: ubuntu-latest
